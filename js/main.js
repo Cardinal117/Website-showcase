@@ -69,7 +69,8 @@ function slideShow(container, containerArray, count) {
   $(`${container} p`).html(containerArray[i].text);
   $(`${container} img`).attr("src", containerArray[i].image);
   console.log(count);
-  if (count > 10){
-    count = 0;
+  if (countOne > 10 || countTwo > 10) {
+    countOne = 0;
+    countTwo = 0;
   }
 }
