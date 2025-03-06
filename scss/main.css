@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+header {
+  margin-bottom: 5%;
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  background-color: rgb(81, 81, 81);
+}
+
+.main-heading {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  text-align: left;
+  margin-top: 3%;
+}
+
+.heading1 {
+  margin-left: 10px;
+  margin-top: 0;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  text-align: left;
+}
+
+.drop-down {
+  font-weight: bold;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  list-style: none;
+}
+.drop-down a:link, .drop-down a:visited {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.drop-down a:hover {
+  color: #34da9e;
+}
+
+.drop {
+  margin-top: 10px;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  color: rgb(81, 81, 81);
+  text-align: left;
+  margin-top: 3%;
+}
+
+.default-list li {
+  margin-left: 0px;
+  line-height: 2;
+  list-style: none;
+  font-size: 1rem;
+}
+
+.default-list li::before {
+  content: "";
+  padding: 0 13px;
+  background-image: url("/Images/controllerIcon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+p {
+  font-family: "century gothic", sans-serif;
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  text-align: left;
+  max-width: 100%;
+}
+
+.games-text {
+  max-width: 60%;
+}
+
+.large-text {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+  padding: 0px;
+  text-align: left;
+}
+
+.turquoiseLink a:hover, .center-text a:hover, .left-align-text a:hover, .right-align-text a:hover, .center-align a:hover, .games-text a:hover, .default-list li a:hover, p a:hover, .large-text a:hover,
+.turquoiseLink a:link,
+.center-text a:link,
+.left-align-text a:link,
+.right-align-text a:link,
+.center-align a:link,
+.games-text a:link,
+.default-list li a:link,
+p a:link,
+.large-text a:link,
+.turquoiseLink a:visited,
+.center-text a:visited,
+.left-align-text a:visited,
+.right-align-text a:visited,
+.center-align a:visited,
+.games-text a:visited,
+.default-list li a:visited,
+p a:visited,
+.large-text a:visited {
+  color: #34da9e;
+  text-decoration: none;
+}
+
+.center-align, .games-text {
+  margin-left: 15%;
+  text-align: left;
+}
+
+.slide-show-text {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  text-align: left;
+  max-width: 100%;
+}
+
+.left-top-align-table {
+  border-bottom: 5px solid rgba(95, 88, 88, 0.8);
+  border-spacing: 120px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  z-index: 5;
+}
+
+.center-text, .left-align-text, .right-align-text {
+  border-radius: 2px;
+  background-color: rgba(95, 88, 88, 0.8);
+  text-align: center;
+  padding: 10px;
+  font-size: 1.5em;
+  font-family: "Orbitron", sans-serif;
+}
+
+.right-align-text {
+  position: absolute;
+  right: 30px;
+}
+
+.left-align-text {
+  position: absolute;
+  left: 30px;
+}
+
+.image-box-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+.white-box-container, .table-of-contents-box, .white-box-container-home {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0cm 4px 5px black;
+  position: absolute;
+  left: 10%;
+  margin-top: 5%;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  min-width: 80%;
+}
+
+.white-box-container-home {
+  margin-top: 300px;
+}
+
+.table-of-contents-box {
+  margin-top: 30px;
+  width: 81%;
+  height: 250px;
+  text-align: left;
+  padding: 0px;
+}
+
+.image-box-blurred-background-home {
+  background-image: url("/Images/gameDesignImage.jpg");
+  width: 100%;
+  height: 80%;
+  background-size: cover;
+  filter: blur(3px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.image-box-blurred-background-contact, .games-image1, .sources-image, .games-image2 {
+  background-image: url("/Images/contactImage.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  filter: blur(6px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.games-image1, .sources-image, .games-image2 {
+  width: 70%;
+  left: 15%;
+  right: 15%;
+  filter: blur(0px);
+  background-image: url("/Images/NoMansSkyImage2.jpg");
+  z-index: 0;
+}
+
+.games-image2 {
+  background-image: url("/Images/witcher3Image.jpeg");
+}
+
+.sources-image {
+  top: 3%;
+  height: 100%;
+  background-image: url("/Images/SpinningDonut.gif");
+}
+
+.text-container, .text-container-black {
+  font-size: 4em;
+  position: relative;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+  padding: 20px;
+}
+
+.text-container-black {
+  color: #000000;
+}
+
+.slide-show-container {
+  box-shadow: 0cm 8px 10px rgb(81, 81, 81);
+  width: 60%;
+  height: auto;
+  display: block;
+  left: 0px;
+}
+
+.image-styling {
+  max-width: 50%;
+  width: auto;
+  height: auto;
+}/*# sourceMappingURL=main.css.map */

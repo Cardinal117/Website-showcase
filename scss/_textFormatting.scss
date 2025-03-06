@@ -1,0 +1,142 @@
+// Import for new Orbitron font.
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+$defaultSize: 1.2rem;
+$heading1Size: 2rem;
+$heading2Size: 1.6rem;
+$lightGrey: rgb(81, 81, 81);
+$black: rgb(0, 0, 0);
+$turquoise: #34da9e;
+
+// Adjusts the header margin.
+header {
+  margin-bottom: 5%;
+}
+
+// Applies the custom font style to all body text.
+body {
+  font-family: "Orbitron", sans-serif;
+  background-color: $lightGrey;
+}
+
+// Main heading styling.
+.main-heading {
+  font-family: "Orbitron", sans-serif;
+  font-size: $heading1Size;
+  color: $black;
+  text-align: left;
+  margin-top: 3%;
+}
+
+// Styling for heading1
+.heading1 {
+  margin-left: 10px;
+  margin-top: 0;
+  font-family: "Orbitron", sans-serif;
+  font-size: $heading1Size;
+  color: $black;
+  text-align: left;
+}
+
+// Styles the drop down list starting word and items. 
+.drop-down{
+  font-weight: bold;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  list-style: none;
+  a:link, a:visited {
+    color: $black;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $turquoise;
+  }
+}
+
+//  Styles the items in the dropdown list.
+.drop {
+  margin-top: 10px;
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+// Aligns h2 to the left and modifies the font.
+h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: $heading2Size;
+  color: $lightGrey;
+  text-align: left;
+  margin-top: 3%;
+}
+
+// Allows the custom style bullet image to be used.
+.default-list {
+  li {
+    @extend .turquoiseLink;
+    margin-left: 0px;
+    line-height: 2;
+    list-style: none;
+    font-size: 1rem;
+  }
+}
+
+// Resizes the li style image to be small enough.
+.default-list li::before {
+  content: "";
+  padding: 0 13px;
+  background-image: url("/Images/controllerIcon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+// Styling for all paragraphs.
+p {
+  @extend .turquoiseLink;
+  font-family: "century gothic", sans-serif;
+  font-size: $defaultSize;
+  color: $black;
+  padding: 5px;
+  text-align: left;
+  max-width: 100%;
+}
+
+// Custom style to center and set max with of text.
+.games-text{
+  @extend .center-align;
+  max-width: 60%;
+}
+
+// Custom style for large text.
+.large-text {
+  @extend .turquoiseLink;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  color: $black;
+  padding: 0px;
+  text-align: left;
+}
+
+// Changes the link attribute colors.
+.turquoiseLink {
+  a:hover,
+  a:link,
+  a:visited {
+    color: $turquoise;
+    text-decoration: none;
+  }
+}
+
+// Aligns text to the center of the screen.
+.center-align {
+  @extend .turquoiseLink;
+  margin-left: 15%;
+  text-align: left;
+}
+
+.slide-show-text{
+  font-size: $defaultSize;
+  color: $black;
+  padding: 5px;
+  text-align: left;
+  max-width: 100%;
+}

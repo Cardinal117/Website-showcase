@@ -1,0 +1,29 @@
+Sources:
+Image used for the ordered list bullets:
+https://www.pngegg.com/en/png-fpxza#goog_rewarded
+
+Image used for index.html:
+https://www.shutterstock.com/search/c%23-programming?page=2
+
+Image used for index.html:
+https://aie.edu.au/course/game-design-courses/
+
+Image used for contact.html:
+https://pixabay.com/images/search/contact/
+
+Image used for games.html:
+https://mygaming.co.za/news/features/85125-gazing-into-no-mans-land-no-mans-sky
+
+Image used for games.html:
+https://saltythyme.wordpress.com/2016/02/11/game-break-the-witcher-3-wild-hunt/
+
+List style image:
+https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image
+
+Gif image used in sources.html:
+https://wifflegif.com/tags/4022-coding-gifs?page=3
+
+Images used for coding slideshow section:
+1: https://www.etsy.com/in-en/listing/1855508743/exco-c-programming-mouse-pad-large?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=c%23+mousepad&ref=sr_gallery-1-2&frs=1&content_source=a16e227eb76f4fa9e1d96ce841717ea51415876a%253A1855508743&organic_search_click=1&logging_key=a16e227eb76f4fa9e1d96ce841717ea51415876a%3A1855508743
+2: https://www.spiceworks.com/tech/devops/articles/what-is-version-control/
+3: 
