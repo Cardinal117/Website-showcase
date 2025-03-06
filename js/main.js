@@ -26,7 +26,6 @@ let developmentSlide2 = new slide(
 );
 
 $(document).ready(function () {
-  alert("The eagle has landed!");
   codeSlideArr.push(codeSlide1, codeSlide2);
   developmentArr.push(developmentSlide1, developmentSlide2);
 
