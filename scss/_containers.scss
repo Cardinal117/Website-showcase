@@ -43,7 +43,7 @@ $imageWidth: 50%;
 
 // Creates a box with a blurred background image.
 .image-box-blurred-background-home {
-  background-image: url("Images/gameDesignImage.jpg");
+  background-image: url("../Images/gameDesignImage.jpg");
   width: 100%;
   height: 80%;
   background-size: cover;
@@ -56,7 +56,7 @@ $imageWidth: 50%;
 
 // Creates a box with a blurred background image.
 .image-box-blurred-background-contact {
-  background-image: url("Images/contactImage.png");
+  background-image: url("../Images/contactImage.png");
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -74,14 +74,14 @@ $imageWidth: 50%;
   left: 15%;
   right: 15%;
   filter: blur(0px);
-  background-image: url("Images/NoMansSkyImage2.jpg");
+  background-image: url("../Images/NoMansSkyImage2.jpg");
   z-index: 0;
 }
 
 // Creates a box with a background image for games.html.
 .games-image2 {
   @extend .games-image1;
-  background-image: url("Images/witcher3Image.jpeg");
+  background-image: url("../Images/witcher3Image.jpeg");
 }
 
 // Creates a box with a background image for sources.html.
@@ -89,7 +89,7 @@ $imageWidth: 50%;
   @extend .games-image1;
   top: 3%;
   height: 100%;
-  background-image: url("Images/SpinningDonut.gif");
+  background-image: url("../Images/SpinningDonut.gif");
 }
 
 // Container for the text.
