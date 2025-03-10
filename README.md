@@ -1,4 +1,4 @@
-# Website Showcase
+# ✨Website Showcase✨
 
 ## Table of Contents
 - [About Me](#about-me)
