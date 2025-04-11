@@ -10,6 +10,38 @@ $imageWidth: 50%;
   height: 500px;
 }
 
+.button-styling {
+  background-color: $turquoise; // Futuristic turquoise
+  color: #000;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background-color: darken($turquoise, 10%);
+    transform: translateY(-3px);
+    box-shadow: 0 0 8px rgba(52, 218, 158, 0.8), 0 6px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  &:disabled {
+    background-color: grey;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+  }
+}
+
 // Creates a white box in a section.
 .white-box-container {
   background-color: $White;
@@ -84,12 +116,27 @@ $imageWidth: 50%;
   background-image: url("../Images/witcher3Image.jpeg");
 }
 
+.games-image3 {
+  @extend .games-image1;
+  background-image: url("../Images/skyrim_dragonborn.png");
+}
+
 // Creates a box with a background image for sources.html.
 .sources-image {
   @extend .games-image1;
   top: 3%;
   height: 100%;
   background-image: url("../Images/SpinningDonut.gif");
+}
+
+// Button styling for save for later elements.
+.save-btn {
+  @extend .button-styling;
+  background-color: rgb(73, 73, 73); // Futuristic turquoise
+  color: #ffffff;
+  padding: 4px 10px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
 }
 
 // Container for the text.
