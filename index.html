@@ -14,6 +14,7 @@
             <td class="left-align-text"><a href="index.html">Home</a></td>
             <td class="center-text"><a href="html/games.html">Games</a></td>
             <td class="center-text"><a href="html/sources.html">Sources</a></td>
+            <td class="center-text"><a href="html/saves.html">Saves</a></td>
             <td class="right-align-text"><a href="html/contact.html">Contact</a></td>
           </tr>
         </table>
@@ -51,6 +52,21 @@
     </section>
 
     <section class="white-box-container-home">
+      <button
+        id="startFade"
+        class="button-styling"
+        onclick="fadingImage(1)"
+      >
+        Hide tips boxes
+      </button>
+      <button
+        id="resetFade"
+        class="button-styling"
+        onclick="fadingImage(2)"
+      >
+        Show tips boxes
+      </button>
+
       <h1 class="main-heading">Creating Games:</h1>
       <p>
         Game development by definition is to simply create games from the ground
@@ -60,6 +76,7 @@
       </p>
 
       <section id="planning">
+      <div class="savable-item">
         <h2>Planning and Brainstorming:</h2>
         <p>
           This is the first step in creating a game. This is where you decide on
@@ -73,7 +90,7 @@
           <li>Thinking of unique features to keep players engaged.</li>
           <li>Thinking of gameplay attributes to make the game stand out.</li>
         </ul>
-
+    </div>
         <p>
           You can easily get carried away with this step as you can think of
           just about anything. This also means that you should watch out for
@@ -81,7 +98,7 @@
         </p>
       </section>
 
-      <div class="slide-show-container" id="developmentTips">
+      <div class="slide-show-container savable-item" id="developmentTips">
         <img class="image-styling" src="Images/loading.gif">
         <p class="slide-show-text">loading....</p>
       </div>
@@ -207,6 +224,7 @@
     </form>
 </div>
     </section>
-      <script src="js/main.js"></script>
+    <script src="js/slides.js"></script>
+    <script type="module" src="js/main.js"></script>  
   </body>
 </html>
