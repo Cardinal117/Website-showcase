@@ -125,41 +125,6 @@ function displaySessionStorageItems() {
   });
 }
 
-// btn.addEventListener("click", function () {
-//       // Check if item has already been saved.
-//       // console.log(btn);
-//       let alreadySaved = false;
-//       const btnHtml = btn.innerHTML;
-//       savedItems.forEach((s) => {
-
-//         console.log(s.classList + "working?");
-//         if (s.html === btnHtml) {
-//           alreadySaved = true;
-//           return;
-//         }else{
-//           console.log("it does not");
-//         }
-//         console.log("Content of item: " + item);
-//       });
-
-//       if(alreadySaved){
-//         alert("Item has already been saved.");
-//         return;
-//       }
-
-//       $(btn).addClass("saved");
-//       const elementHtml = btn.outerHTML;
-//       const save = new SaveItem(Date.now(), elementHtml);
-//       console.log("Item to be saved:\n" + elementHtml);
-
-//       let saves = JSON.parse(sessionStorage.getItem("savedItems"));
-//       saves.push(save);
-
-//       localStorage.setItem("savedItems", JSON.stringify(saves));
-//       console.log("Added new saved item to storage.");
-//     });
-
-
 // Allows a specified element to show and hide it's list/items when hovered over.
 function dropDownAnimation() {
   jQuery(".drop-down").hover(
