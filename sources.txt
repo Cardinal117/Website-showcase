@@ -18,7 +18,8 @@ Image used for games.html:
 https://saltythyme.wordpress.com/2016/02/11/game-break-the-witcher-3-wild-hunt/
 
 Image used for games.html:
-https://gamerant.com/skyrim-headless-npc-guard-fight-shocking-video-clip/
+1: https://gamerant.com/skyrim-headless-npc-guard-fight-shocking-video-clip/
+2: https://www.wallpaperflare.com/search?wallpaper=cyberpunk+2077
 
 List style image:
 https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-image

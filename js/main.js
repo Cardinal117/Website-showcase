@@ -1,3 +1,9 @@
+let count = 0;
+let pressed = false;
+let codeSlideArr = [];
+let developmentArr = [];
+let savedItems = [];
+
 class slide {
   constructor(image, text) {
     this.image = image;
@@ -5,26 +11,22 @@ class slide {
   }
 }
 
-let codeSlideArr = [];
-let developmentArr = [];
-let savedItems = [];
-
 let codeSlide1 = new slide(
-  `Images/C_cheatSheet_mousePad.png`,
+  `https://Cardinal117.github.io/Website-showcase/Images/C_cheatSheet_mousePad.png`,
   `If your looking for a new mouse pad I recommend this one.`
 );
 let codeSlide2 = new slide(
-  `Images/Benefits-of-Version-Control.png`,
+  `https://Cardinal117.github.io/Website-showcase/Images/Benefits-of-Version-Control.png`,
   `I highly recommend checking out <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiVorjKlfOLAxV4SfEDHciELrcQFnoECAsQAQ&url=https%3A%2F%2Fgithub.com%2F&usg=AOvVaw38IHvcyBra8HGhmSxvlCGw&opi=89978449">version control</a>, using it will allow you to have backups for everything.`
 );
 let developmentSlide1 = new slide(
-  "Images/Color-Switch.png",
+  "https:///Cardinal117.github.io/Website-showcase/Images/Color-Switch.png",
   "Starting small and working your way up is the best way to learn, " +
     "start by making well known mobile games and improve upon your skills " +
     "using them as a basis."
 );
 let developmentSlide2 = new slide(
-  "Images/flappy_bird.gif",
+  "https://Cardinal117.github.io/Website-showcase/Images/flappy_bird.gif",
   "a Traditional game to start with is flappy bird, you'll learn" +
     " one of the first great things about programming, how to fool the " +
     "audience. Did you know that it is not actually the bird that is moving " +
@@ -61,39 +63,51 @@ function saveItemsManager() {
     savedItems = JSON.parse(sessionStorage.getItem("savedItems"));
     console.log("SessionStorage is not empty:\nAdding stored values to array.");
   }
-  if (savedItems === null) {
-    alert("Array for saves is null!");
+
+  // Checks if the saved items exist in session storage and adds them to the page.
+  if (savedItems && savedItems.length !== 0) {
+    console.log("Adding all saved items to saved.html");
+    savedItems.forEach((items) => {
+      console.log(items);
+      const date = new Date(items.timeStamp);
+      const month = date.getMonth() + 1;
+      $("#saved-container-text").append(
+        `${date.getDate()}/${month}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}<hr>${
+          items.html
+        }<hr>`
+      );
+    });
   } else {
-    if (savedItems.length !== 0) {
-      console.log("Adding all saved items to saved.html");
-      savedItems.forEach((items) => {
-        console.log(items);
-        const date = new Date(items.timeStamp);
-        const month = date.getMonth() + 1;
-        $("#saved-container-text").append(
-          `${date.getDate()}/${month}/${date.getFullYear()} ${date.getHours()}:${date.getSeconds()}<hr>${items.html}<hr>`
-        );
-      });
-    } else {
-      $("#saved-container-text").html("<p>You have no saved items.</p>");
-      console.log("No saved content found displaying appropriate message.");
-    }
+    $("#saved-container-text").html("<p>You have no saved items.</p>");
+    console.log("No saved content found displaying appropriate message.");
   }
 
   // Adds a button to all saveable elements.
   document.querySelectorAll(".savable-item").forEach((btn) => {
-    const $saveButton = $("<button>Save for Later</button>").addClass(
-      "save-btn"
-    );
+    const $saveButton = $(
+      `<button id="button">^Save for Later^</button>`
+    ).addClass("save-btn");
     $(btn).append($saveButton);
     console.log("All buttons have been added.");
     // Happens when user click on btn.
-    btn.addEventListener("click", function () {
-      if (!btn.classList.contains("saved")) { // Important button acts as beauty spot, make the button actually function 
-                                              // as the only thing that adds an element to the array.
+    btn.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("save-btn")) return; // Only allows save button elements to save the element if clicked on.
+      if (!btn.classList.contains("saved")) {
+        // Important button acts as beauty spot, make the button actually function
+        // as the only thing that adds an element to the array.
         $(btn).addClass("saved");
         console.log(btn.outerHTML);
         console.log("Preparing save sequence...");
+
+        let element = document.querySelector("#button");
+        while (element) {
+          element.remove();
+          $(btn).removeClass("savable-item");
+          if (!btn.classList.contains("save-btn")) {
+            break;
+          }
+          console.log("Removing button from element.");
+        }
 
         let save = new SaveItem(Date.now(), btn.outerHTML);
         savedItems.push(save);
@@ -103,8 +117,14 @@ function saveItemsManager() {
         sessionStorage.setItem("savedItems", JSON.stringify(savedItems));
 
         console.log("Finally added the item to the session storage.");
+        alert(
+          "New item added to saved storage.\nCurrent size = (" +
+            savedItems.length +
+            ")"
+        );
       } else {
         alert("This object has already been saved.");
+        return;
       }
 
       displaySessionStorageItems();
@@ -112,11 +132,24 @@ function saveItemsManager() {
   });
 }
 
-function clearSavedItems() { // _____________------------------------Currently is not "found" I know it's dumb.
+// TO BE IMPLEMENTED
+function removeSavedItem(index) {
+  // Removes the item at the specified index from the saved items array.
+  if (index >= 0 && index < savedItems.length) {
+    savedItems.splice(index, 1);
+    sessionStorage.setItem("savedItems", JSON.stringify(savedItems));
+    console.log(`Item at index ${index} removed from saved items.`);
+  } else {
+    console.log("Invalid index. No item removed.");
+  }
+}
+
+function clearSavedItems() {
   // Clears the session storage and resets the saved items array.
   sessionStorage.clear();
   savedItems = [];
   console.log("Cleared all saved items.");
+  location.reload();
 }
 
 function displaySessionStorageItems() {
@@ -174,4 +207,107 @@ function slideShow(container, containerArray, intervalTime) {
       hidden = true;
     }
   }, intervalTime);
+}
+
+// Toggles the chainAnimation() class.
+function buttonPress() {
+  pressed = !pressed;
+  console.log("Animation started: ", pressed);
+
+  // Calls the chainAnimation class to start the animation
+  // when pressed is true.
+  if (pressed) {
+    chainAnimation();
+  }
+}
+
+function chainAnimation() {
+  let chainLeft = $(".chainLeft");
+  let chainRight = $(".chainRight");
+  // Resets the elements back to their original position
+  // and changes the background color back if pressed is false.
+  if (!pressed) {
+    chainRight.css("transform", "translateX(0px)");
+    chainLeft.css("transform", "translateX(0px)");
+    $("body").css("background-color", "rgb(81, 81, 81)");
+    return;
+  } else {
+    // Loops the animation as long as pressed is true.
+    setTimeout(chainAnimation, 200);
+  }
+
+  count++;
+
+  // Loops through each count changing the position of each element as well as the background
+  // color with the class names .chainLeft and .chainRight every 200 milliseconds.
+  switch (count) {
+    case 1:
+      chainRight.css("transform", "translateX(-10px)");
+      chainLeft.css("transform", "translateX(10px)");
+      break;
+    case 2:
+      chainRight.css("transform", "translateX(-20px)");
+      chainLeft.css("transform", "translateX(20px)");
+      break;
+    case 3:
+      chainRight.css("transform", "translateX(-30px)");
+      chainLeft.css("transform", "translateX(30px)");
+      $("body").css("background-color", "red");
+      break;
+    case 4:
+      chainRight.css("transform", "translateX(-40px)");
+      chainLeft.css("transform", "translateX(40px)");
+      break;
+    case 5:
+      chainRight.css("transform", "translateX(-30px)");
+      chainLeft.css("transform", "translateX(30px)");
+      break;
+    case 6:
+      chainRight.css("transform", "translateX(-20px)");
+      chainLeft.css("transform", "translateX(20px)");
+      break;
+    case 7:
+      chainRight.css("transform", "translateX(-10px)");
+      chainLeft.css("transform", "translateX(10px)");
+      break;
+    case 8:
+      chainRight.css("transform", "translateX(0px)");
+      chainLeft.css("transform", "translateX(0px)");
+      $("body").css("background-color", "green");
+      break;
+    case 9:
+      chainLeft.css("transform", "translateX(-10px)");
+      chainRight.css("transform", "translateX(10px)");
+      break;
+    case 10:
+      chainLeft.css("transform", "translateX(-20px)");
+      chainRight.css("transform", "translateX(20px)");
+      break;
+    case 11:
+      chainLeft.css("transform", "translateX(-30px)");
+      chainRight.css("transform", "translateX(30px)");
+      break;
+    case 12:
+      chainLeft.css("transform", "translateX(-40px)");
+      chainRight.css("transform", "translateX(40px)");
+      break;
+    case 13:
+      chainLeft.css("transform", "translateX(-30px)");
+      chainRight.css("transform", "translateX(30px)");
+      break;
+    case 14:
+      chainLeft.css("transform", "translateX(-20px)");
+      chainRight.css("transform", "translateX(20px)");
+      $("body").css("background-color", "blue");
+      break;
+    case 15:
+      chainLeft.css("transform", "translateX(-10px)");
+      chainRight.css("transform", "translateX(10px)");
+      break;
+    case 16:
+      chainLeft.css("transform", "translateX(0px)");
+      chainRight.css("transform", "translateX(0px)");
+      count = 0;
+      break;
+  }
 }
