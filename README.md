@@ -34,6 +34,9 @@ The project showcases the use of SCSS, HTML, and some JavaScript to create a fre
 - **The games page should look like this:**
   ![Games Page image for installation instructions.](/ShowcaseImages/GamesPageImg.png)
 
+- **Playground page display**
+  ![Display of Playground page](/ShowcaseImages/PlaygroundPageImg.png)
+
 - **The image and text in the box below the Planning and Brainstorming bullet points will change after a few seconds:**
   - **First change:**
     ![First Box Change Iteration](/ShowcaseImages/FirstBoxChangeIterationImg.png)
@@ -44,15 +47,14 @@ The project showcases the use of SCSS, HTML, and some JavaScript to create a fre
 
 - You can browse through each section of the website and use the table of contents to quickly navigate to different sections.
 - The buttons at the top of the header/page can be clicked on to navigate to other webpages.
+- Almost all elements on the Home page and all on the Games page can be saved for later(by clicking the save for later button). This will save the elements to another page labled Saves to view for later.
+- Comments can be added at the bottom of the home page to share your thoughts and you can like said comment.
+- The Playground page is where I will add/remove/modify or change animations or effects just to test it out and improve my skills.
 
 ## 🛠️Future Updates
 
-- I will be adding a save-for-later functionality to some sections of the webpages. This will allow you to click on a save-for-later button and view that section on another webpage later.
-- I will be adding a page to view your saved-for-later sections of the webpages.
-- More animation effects will be added:
-  - A chain animation that will link some parts of the code and make them appear chained together with a cool affect.
-  - Additional animation effects that will be toggleable via buttons or it will appear in the background.
-- A hiding and showing function that will allow users to hide or show sections/all content or just some parts of the webpages.
+- At this moment it will just be some extra animations or effects added to the playground page.
+- Some background elements will be modified and improved to increase performance and make me feel happier about my code.
 
 - 💡Let me know what extra features or effects I should add in the future, I will try my very best to implement it in some way.
 
