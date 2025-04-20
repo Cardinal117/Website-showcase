@@ -6,6 +6,7 @@
 - [How to Install](#how-to-install)
 - [Usage](#usage)
 - [Future Updates](#future-updates)
+- [Recent Updates](#recent-updates)
 - [How to Reach Me](#how-to-reach-me)
 - [Fun Fact](#fun-fact)
 - [Credits](#credits)
@@ -59,7 +60,7 @@ The project showcases the use of SCSS, HTML, and some JavaScript to create a fre
 
 - 💡Let me know what extra features or effects I should add in the future, I will try my very best to implement it in some way.
 
-## ⚙️ Recent Updates
+## ⚙️Recent Updates
 
 1. Comments and likes update:
 - Added the ability to add comments to the cite as well as like said comments.
@@ -91,6 +92,6 @@ The project showcases the use of SCSS, HTML, and some JavaScript to create a fre
 
 - Only me at the moment.
 
-## 📄 License
+## 📄License
 
 This project is licensed under the MIT License — see the LICENSE file for details.
