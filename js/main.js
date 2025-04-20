@@ -3,6 +3,7 @@ let pressed = false;
 let codeSlideArr = [];
 let developmentArr = [];
 let savedItems = [];
+let commentsArr = [];
 
 class slide {
   constructor(image, text) {
@@ -11,6 +12,7 @@ class slide {
   }
 }
 
+// Values for slide shows.
 let codeSlide1 = new slide(
   `https://Cardinal117.github.io/Website-showcase/Images/C_cheatSheet_mousePad.png`,
   `If your looking for a new mouse pad I recommend this one.`
@@ -52,25 +54,100 @@ class SaveItem {
   }
 }
 
+class SaveComment {
+  constructor(timeStamp, text, likeCount) {
+    this.timeStamp = timeStamp;
+    this.text = text;
+    this.likeCount = likeCount;
+  }
+}
+
+// Adds all saved comments to the page and handles the liking functionality for each comment.
+function saveCommentsManager() {
+  // Checks if saved comments exist in session storage and adds them to the page.
+  if (commentsArr && commentsArr.length !== 0) {
+    console.log("Adding comments to index.html");
+    commentsArr.forEach((comments) => {
+      let date = new Date(comments.timeStamp);
+      let month = date.getMonth() + 1;
+      let commentHtml = `
+  <div class="comment-block" data-timestamp="${comments.timeStamp}">
+    <p>${date.getDate()}/${month}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}</p>
+    <hr>
+    <p>${comments.text}</p>
+    <p class="like-count">Likes: ${comments.likeCount}</p>
+    <button class="button-styling-comments">Like</button>
+    <hr>
+  </div>`;
+      $("#comments-section").append(commentHtml);
+    });
+  }
+
+  // Handles the liking functionality of the comments.
+  const commentSection = document.getElementById("comments-section");
+  if (!commentSection) {
+    console.warn(
+      "comments-section not found on this page. Skipping like handler."
+    );
+    return;
+  }
+
+  commentSection.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("button-styling-comments")) return;
+
+    console.log("Like button clicked.");
+
+    let commentBlock = e.target.closest(".comment-block");
+    let timeStamp = commentBlock.getAttribute("data-timestamp");
+
+    let commentsArr = JSON.parse(
+      sessionStorage.getItem("savedComments") || "[]"
+    );
+    // Updates like count per click if timestamps match.
+    commentsArr.find((value) => {
+      if (value.timeStamp == timeStamp) {
+        liked = true;
+        value.likeCount++;
+        commentBlock.querySelector(
+          ".like-count"
+        ).textContent = `Likes: ${value.likeCount}`;
+        console.log("Comment has been updated:" + value.text);
+      }
+    });
+    // Updates the sessionStorage.
+    sessionStorage.setItem("savedComments", JSON.stringify(commentsArr));
+  });
+}
+
 // Happens only when the page is loaded.
 function saveItemsManager() {
+  let date = new Date();
+  let month = 0;
+
   // Checks if book objects already exist or not
   if (sessionStorage.getItem("codeCalled") === null) {
     sessionStorage.setItem("savedItems", JSON.stringify(savedItems));
+    sessionStorage.setItem("savedComments", JSON.stringify(commentsArr));
     sessionStorage.setItem("codeCalled", true);
-    console.log("The sessionStorage is empty:\nArray has been added in place.");
+    console.log(
+      "The sessionStorage is for saved items and comments are empty:\nArrays have been added in place."
+    );
   } else {
     savedItems = JSON.parse(sessionStorage.getItem("savedItems"));
-    console.log("SessionStorage is not empty:\nAdding stored values to array.");
+    commentsArr = JSON.parse(sessionStorage.getItem("savedComments"));
+    console.log(
+      "SessionStorage is not empty:\nAdding stored values to arrays."
+    );
   }
+
+  saveCommentsManager();
 
   // Checks if the saved items exist in session storage and adds them to the page.
   if (savedItems && savedItems.length !== 0) {
     console.log("Adding all saved items to saved.html");
     savedItems.forEach((items) => {
-      console.log(items);
-      const date = new Date(items.timeStamp);
-      const month = date.getMonth() + 1;
+      date = new Date(items.timeStamp);
+      month = date.getMonth() + 1;
       $("#saved-container-text").append(
         `${date.getDate()}/${month}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}<hr>${
           items.html
@@ -127,6 +204,7 @@ function saveItemsManager() {
         return;
       }
 
+      // Testing function.
       displaySessionStorageItems();
     });
   });
@@ -152,10 +230,32 @@ function clearSavedItems() {
   location.reload();
 }
 
+// Simply displays all saved items to the console.
 function displaySessionStorageItems() {
   savedItems.forEach((items) => {
     console.log(items);
   });
+}
+
+// Saved the comments, time made and like count when called.
+function saveCommentText() {
+  let commentText = document.querySelector("#comment").value;
+  if (commentText === "") {
+    alert("Please enter a comment before saving.");
+    return;
+  }
+
+  let comment = new SaveComment(Date.now(), commentText, 0);
+  console.log(comment.text, comment.timeStamp, comment.likeCount);
+  if (comment == null) {
+    alert("Comment is null, please try again.");
+    return;
+  }
+  // Adds new comment values to the sessionstorage
+  commentsArr.push(comment);
+  sessionStorage.setItem("savedComments", JSON.stringify(commentsArr));
+  console.log(commentsArr);
+  location.reload();
 }
 
 // Allows a specified element to show and hide it's list/items when hovered over.
@@ -189,6 +289,7 @@ window.fadingImage = function (type) {
   }
 };
 
+// Simply switches between two slides(image and paragraph text) after an intervalTime.
 function slideShow(container, containerArray, intervalTime) {
   let count = 0;
   let hidden = false;

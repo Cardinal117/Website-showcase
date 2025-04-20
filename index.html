@@ -229,9 +229,21 @@
         <br>
         <button>Submit</button>
     </form>
-</div>
+    <br>
+    <form action="comments-section">
+      <div>
+        <h3><b>Comments section:</b></h3>
+        <p>Have something to say? Let me know by leaving a comment:</p>
+        <textarea name="comment" id="comment" placeholder="Leave a comment here..." rows="4" cols="50"></textarea>
+      </div>
+      
+    </form>
+    <button id="save-comment" class="button-styling" onclick="saveCommentText()">Save</button>
+  </div>
+      <h2>Comments:</h2>
+      <div id="comments-section" class="comments-section"></div>
     </section>
     <script src="js/slides.js"></script>
-    <script type="module" src="js/main.js"></script>  
+    <script src="js/main.js"></script>  
   </body>
 </html>
