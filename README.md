@@ -9,6 +9,7 @@
 - [How to Reach Me](#how-to-reach-me)
 - [Fun Fact](#fun-fact)
 - [Credits](#credits)
+- [Licence](#licence)
 
 ## 👨‍💻About Me
 
@@ -89,3 +90,7 @@ The project showcases the use of SCSS, HTML, and some JavaScript to create a fre
 ## 🏆Credits
 
 - Only me at the moment.
+
+## 📄 License
+
+This project is licensed under the MIT License — see the LICENSE file for details.
