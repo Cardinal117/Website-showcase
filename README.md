@@ -92,6 +92,6 @@ The project showcases the use of SCSS, HTML, and some JavaScript to create a fre
 
 - Only me at the moment.
 
-## 📄License
+## 📄Licence
 
 This project is licensed under the MIT License — see the LICENSE file for details.
