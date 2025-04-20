@@ -58,6 +58,26 @@ The project showcases the use of SCSS, HTML, and some JavaScript to create a fre
 
 - 💡Let me know what extra features or effects I should add in the future, I will try my very best to implement it in some way.
 
+## ⚙️ Recent Updates
+
+1. Comments and likes update:
+- Added the ability to add comments to the cite as well as like said comments.
+  
+2. Major Update The save and chain update
+- Added new html site called the playground.
+
+- Added chain animation to playground.
+
+- Tweaked and fixed some bugs with save for later functionality.
+- Added the ability to remove saved items from the list.
+
+- Added more save able items on the index.html and also on games.html.
+
+- Currently still only saved items in sessionStorage not locally yet.
+
+- Known issue:
+- Can sometimes add duplicate items to the save for later page after refreshing page. (even though I have code to prevent this some 0 and 1 still decides to be stubborn)
+
 ## How to Reach Me
 
 - 📫 Email: jaydenlberg2005@gmail.com
